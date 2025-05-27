@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 210 11% 98%; /* #F5F7FA */
+  --foreground: 215 28% 17%; /* #1e293b */
+  --muted: 210 40% 94%; /* #e2e8f0 */
+  --muted-foreground: 215 16% 47%; /* #64748b */
+  --popover: 0 0% 100%;
+  --popover-foreground: 215 28% 17%; /* #1e293b */
+  --card: 0 0% 100%;
+  --card-foreground: 215 28% 17%; /* #1e293b */
+  --border: 214 32% 91%; /* #cbd5e1 */
+  --input: 214 32% 91%; /* #cbd5e1 */
+  --primary: 217 91% 60%; /* #2563eb */
+  --primary-foreground: 210 40% 98%; /* #f8fafc */
+  --secondary: 210 40% 94%; /* #e2e8f0 */
+  --secondary-foreground: 215 28% 17%; /* #1e293b */
+  --accent: 210 40% 94%; /* #e2e8f0 */
+  --accent-foreground: 215 28% 17%; /* #1e293b */
+  --destructive: 0 84% 60%; /* #ef4444 */
+  --destructive-foreground: 210 40% 98%; /* #f8fafc */
+  --ring: 217 91% 60%; /* #2563eb */
+  --radius: 0.5rem;
+  --chart-1: 12 76% 61%;
+  --chart-2: 173 58% 39%;
+  --chart-3: 197 37% 24%;
+  --chart-4: 43 74% 66%;
+  --chart-5: 27 87% 67%;
+  --sidebar-background: 0 0% 100%;
+  --sidebar-foreground: 215 28% 17%; /* #1e293b */
+  --sidebar-primary: 217 91% 60%; /* #2563eb */
+  --sidebar-primary-foreground: 210 40% 98%; /* #f8fafc */
+  --sidebar-accent: 210 40% 94%; /* #e2e8f0 */
+  --sidebar-accent-foreground: 215 28% 17%; /* #1e293b */
+  --sidebar-border: 214 32% 91%; /* #cbd5e1 */
+  --sidebar-ring: 217 91% 60%; /* #2563eb */
+}
+
+.dark {
+  --background: 215 28% 17%; /* #1e293b */
+  --foreground: 210 40% 98%; /* #f8fafc */
+  --muted: 215 28% 25%; /* #334155 */
+  --muted-foreground: 215 20% 65%; /* #94a3b8 */
+  --popover: 215 28% 17%; /* #1e293b */
+  --popover-foreground: 210 40% 98%; /* #f8fafc */
+  --card: 215 28% 17%; /* #1e293b */
+  --card-foreground: 210 40% 98%; /* #f8fafc */
+  --border: 215 28% 25%; /* #334155 */
+  --input: 215 28% 25%; /* #334155 */
+  --primary: 217 91% 60%; /* #2563eb */
+  --primary-foreground: 210 40% 98%; /* #f8fafc */
+  --secondary: 215 28% 25%; /* #334155 */
+  --secondary-foreground: 210 40% 98%; /* #f8fafc */
+  --accent: 215 28% 25%; /* #334155 */
+  --accent-foreground: 210 40% 98%; /* #f8fafc */
+  --destructive: 0 62% 30%; /* #dc2626 */
+  --destructive-foreground: 210 40% 98%; /* #f8fafc */
+  --ring: 217 91% 60%; /* #2563eb */
+  --chart-1: 220 70% 50%;
+  --chart-2: 160 60% 45%;
+  --chart-3: 30 80% 55%;
+  --chart-4: 280 65% 60%;
+  --chart-5: 340 75% 55%;
+  --sidebar-background: 215 28% 17%; /* #1e293b */
+  --sidebar-foreground: 210 40% 98%; /* #f8fafc */
+  --sidebar-primary: 217 91% 60%; /* #2563eb */
+  --sidebar-primary-foreground: 210 40% 98%; /* #f8fafc */
+  --sidebar-accent: 215 28% 25%; /* #334155 */
+  --sidebar-accent-foreground: 210 40% 98%; /* #f8fafc */
+  --sidebar-border: 215 28% 25%; /* #334155 */
+  --sidebar-ring: 217 91% 60%; /* #2563eb */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', 'SF Mono', Monaco, Inconsolata, 'Roboto Mono', 'Source Code Pro', monospace;
+  }
+}
+
+@layer components {
+  .sidebar-nav-link {
+    @apply flex items-center px-6 py-3 text-sm font-medium transition-colors;
+  }
+
+  .sidebar-nav-link-active {
+    @apply text-white bg-primary border-r-2 border-primary;
+  }
+
+  .sidebar-nav-link-inactive {
+    @apply text-slate-700 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-slate-100;
+  }
+
+  .stats-card {
+    @apply bg-white dark:bg-card rounded-xl shadow-sm border border-border p-6;
+  }
+
+  .transaction-badge-incoming {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300;
+  }
+
+  .transaction-badge-outgoing {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300;
+  }
+
+  .transaction-status-confirmed {
+    @apply inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300;
+  }
+
+  .transaction-status-pending {
+    @apply inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-300;
+  }
+}
